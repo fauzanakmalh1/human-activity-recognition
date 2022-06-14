@@ -1,0 +1,22 @@
+/* hide_main_menu_and_footer */
+/* #MainMenu {
+  visibility: hidden;
+}
+
+footer {
+  visibility: hidden;
+}
+
+header {
+  visibility: hidden;
+} */
+
+/* hide_anchor_link */
+.e16nr0p31 {
+  display: none;
+}
+
+/* change_spinner_color */
+.stSpinner>div>div {
+  border-top-color: #a6711f;
+}
