@@ -346,7 +346,7 @@ if menu_name == 'Halaman Depan':
 
     st.write('---')
     st.write('##### Abstrak:')
-    st.markdown('<div style="text-align: justify;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Manusia tidak bisa terlepas dari aktivitas sehari-hari yang mana merupakan bagian dari aktivitas kehidupan manusia. <i>Human Activity Recognition</i> (HAR) atau pengenalan aktivitas manusia saat ini merupakan salah satu topik yang sedang banyak diteliti seiring dengan pesatnya kemajuan di bidang teknologi yang berkembang saat ini. Hampir semua bidang terdampak dari pandemi COVID-19 yang mempengaruhi aktivitas manusia sehingga menjadi lebih terbatas. Salah satu bidang yang paling terdampak yaitu pendidikan, di mana kampus menerapkan sistem pembelajaran daring, yang membuat dosen lebih sulit untuk mengawasi pembelajaran maupun ujian yang dilakukan secara daring karena tidak dapat mengawasi aktivitas yang dilakukan mahasiswa secara langsung.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Penelitian ini bertujuan untuk mengetahui prediksi aktivitas yang dilakukan oleh seseorang saat ujian daring berdasarkan tangkapan <i>webcam</i> dengan memanfaatkan model <i>deep learning</i> dengan metode <i>Convolution Neural Network</i> menggunakan arsitektur MobileNetV2. Penelitian dilakukan menggunakan dataset berupa aktivitas yang terbagi menjadi empat kelas yang dilakukan oleh seseorang saat melaksanakan ujian daring, yang diolah melalui tahap <i>preprocessing</i>, pelatihan model, evaluasi model, dan implementasi aplikasi.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Dari penelitian tersebut, dapat diprediksi aktivitas yang dilakukan oleh seseorang saat melaksanakan ujian daring dengan hasil terbaik diraih oleh model dengan <i>hyperparameter</i> yang diuji berupa jumlah <i>dense layer</i> sebanyak 5 dan jumlah <i>batch size</i> sebesar 16. Model tersebut berhasil memberikan performa <i>F1-score</i> akhir sebesar 84,52%.</p></div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: justify;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Manusia tidak bisa terlepas dari aktivitas sehari-hari yang mana merupakan bagian dari kehidupan manusia. <i>Human activity recognition</i> atau pengenalan aktivitas manusia saat ini merupakan salah satu topik yang sedang banyak diteliti seiring dengan pesatnya kemajuan di bidang teknologi yang berkembang saat ini. Hampir semua bidang terdampak dari pandemi COVID-19 yang memengaruhi aktivitas manusia sehingga menjadi lebih terbatas. Salah satu bidang yang paling terdampak yaitu pendidikan, di mana kampus menerapkan sistem pembelajaran daring, yang membuat dosen lebih sulit untuk mengawasi pembelajaran maupun ujian yang dilakukan secara daring karena tidak dapat mengawasi aktivitas yang dilakukan mahasiswa secara langsung.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Penelitian ini bertujuan untuk membuat model yang dapat mengenali aktivitas seseorang saat ujian daring berdasarkan tangkapan <i>webcam</i> dengan memanfaatkan model <i>deep learning</i> dengan metode <i>Convolution Neural Network</i> (CNN) menggunakan arsitektur MobileNetV2. Pengujian <i>hyperparameter</i> dilakukan untuk menghasilkan model optimal yang dilakukan pada <i>batch size</i> sebesar 16, 32, dan 64 serta <i>dense layer</i> sebanyak 1, 3, 5, dan 7. Pengujian tersebut menghasilkan model optimal dengan <i>hyperparameter</i> berupa <i>max epoch</i> sebanyak 20, <i>early stopping</i> sebesar 10, <i>learning rate</i> sebesar 0,0001, <i>batch size</i> sebesar 16, dan <i>dense layer</i> sebanyak 5. Model tersebut dievaluasi menggunakan <i>cross validation</i> dan <i>confusion matrix</i> yang berhasil memberikan performa <i>F1-score</i> akhir sebesar 84,52%.</p></div>', unsafe_allow_html=True)
 
     st.write('---')
     st.write('##### Dataset:')
@@ -421,17 +421,17 @@ elif menu_name == 'Simulasi Pelatihan Model':
     st.write('---')
     st.write('##### Atur Hyperparameter')
     init_lr_new = st.select_slider(
-        'Learning Rate', options=[1e-1, 1e-2, 1e-3, 1e-4, 1e-5], value=1e-1)
+        'Learning Rate', options=[1e-1, 1e-2, 1e-3, 1e-4, 1e-5], value=1e-4)
     epochs_new = st.slider('Epochs', min_value=2,
-                           max_value=40, value=2, step=1)
+                           max_value=40, value=20, step=1)
     early_stopping_new = st.slider('Early Stopping Patience', min_value=1,
                                    max_value=40, value=10, step=1)
     n_split_fold_new = st.slider(
-        'K-Fold Split', min_value=2, max_value=20, value=2, step=1)
+        'K-Fold Split', min_value=2, max_value=20, value=5, step=1)
     batch_size_new = st.select_slider(
-        'Batch Size', options=[8, 16, 32, 64, 128, 256], value=8)
+        'Batch Size', options=[8, 16, 32, 64, 128, 256], value=16)
     dense_layer_new = st.select_slider(
-        'Dense Layer', options=[1, 3, 5, 7], value=1)
+        'Dense Layer', options=[1, 3, 5, 7], value=5)
 
     st.write('---')
     st.write(f'''\n##### Cek Hyperparameter yang Diatur
@@ -622,7 +622,7 @@ elif menu_name == 'Hasil Model Terbaik':
     st.dataframe(classication_report_df)
 
 elif menu_name == 'Prediksi Foto':
-    st.write('## :camera: Prediksi Foto')
+    st.write('## :camera: Pengenalan Aktivitas Pada Foto')
 
     st.write('---')
     uploaded_image = st.file_uploader(
@@ -648,7 +648,7 @@ elif menu_name == 'Prediksi Foto':
             placeholder.empty()
 
 elif menu_name == 'Prediksi Video':
-    st.write('## :video_camera: Prediksi Video')
+    st.write('## :video_camera: Pengenalan Aktivitas Pada Video')
 
     st.write('---')
     uploaded_video = st.file_uploader(
