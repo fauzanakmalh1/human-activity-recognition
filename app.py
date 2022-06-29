@@ -392,21 +392,21 @@ if menu_name == 'Halaman Depan':
     col1, col2, col3 = st.columns(3)
     with col1:
         with st.expander('Penulis'):
-            image_path = f'{BASE_DIR_ASSET}/image/penulis_crop.jpg'
+            image_path = f'{BASE_DIR_ASSET}/image/penulis_crop.png'
             image = Image.open(image_path)
             st.image(image, use_column_width=True)
             st.write('Nama: Fauzan Akmal Hariz')
             st.write('NPM: 140810180005')
     with col2:
         with st.expander('Pembimbing 1'):
-            image_path = f'{BASE_DIR_ASSET}/image/pembimbing1_crop.jpg'
+            image_path = f'{BASE_DIR_ASSET}/image/pembimbing1_crop.png'
             image = Image.open(image_path)
             st.image(image, use_column_width=True)
             st.write('Nama: Dr. Intan Nurma Yulita, MT.')
             st.write('NIP: 19850704 201504 2 003')
     with col3:
         with st.expander('Pembimbing 2'):
-            image_path = f'{BASE_DIR_ASSET}/image/pembimbing2_crop.jpg'
+            image_path = f'{BASE_DIR_ASSET}/image/pembimbing2_crop.png'
             image = Image.open(image_path)
             st.image(image, use_column_width=True)
             st.write('Nama: Ino Suryana, Drs., M.Kom.')
